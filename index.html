@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+</head>
+<style>
+    .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  
+}
+    .button2 {background-color: #008CBA;} 
+    .a{
+      margin: 300px ;
+        display: flex;
+        justify-content: center;
+        align-items:center ;
+    }
+    input{
+        width : 150px;
+        padding: 7px;
+        border-radius:4px;
+        box-sizing:border-box;
+        font-size:16px;
+        background:#f9f9f9;
+        color:#3c3b3b;
+        outline:none;
+        
+    }
+    
+    
+</style>
+<script>
+    let i=0;
+    som=0;
+    var t = [];
+    function valider() {
+   let a=parseInt(document.getElementById('nm').value);
+    t.push(a);
+    som += a;
+    
+        document.getElementById("somm").value =som;
+        let max=t[0];
+        let min=t[0];
+for(i=1;i<t.length;i++){
+    if (t[i]>max){
+        max=t[i] ;
+        }}
+      document.getElementById("max").value=max;
+
+      for(i=1;i<t.length;i++){
+    if (t[i]<min){
+        min=t[i] ;
+        }}
+      document.getElementById("min").value=min;
+      // trie des tableau
+      const sortedArray = [...t].sort((a, b) => a - b );
+      console.log(`Sorted array: ${sortedArray}`);
+      document.getElementById("tri").value=`${sortedArray}`;
+      
+}
+    
+
+
+</script>
+<body>
+    <div class ="a">
+ <label for="entier">entier</label>
+ <input type="text" id="nm">
+ <label for="max">max</label>
+<input type="text" id="max" disabled>
+<label for="min">min</label>
+<input type="text" id="min" disabled>
+<label for="som">somme</label>
+<input type="text" id="somm" disabled>
+
+
+<label for="tree">trie</label>
+<input type="text" id="tri" disabled>
+<button onclick="valider()" class="button button2">valider</button>
+</div>
+
+</body>
+</html>
